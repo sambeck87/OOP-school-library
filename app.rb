@@ -77,7 +77,6 @@ def list_all_rentals_by_id(rentals)
   end
 end
 
-
 def exit_app
   puts 'Thank you for using this app'
 end

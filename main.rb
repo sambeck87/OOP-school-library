@@ -20,7 +20,7 @@ Please choose an option by entering a number:
 7 - Exit"
 end
 
-def options(books, people, rentals)
+def options(books, people, rentals) # rubocop:disable Metrics/MethodLength: Method has too many lines
   loop do
     display_list
     option = gets.chomp.to_i
@@ -37,12 +37,11 @@ def options(books, people, rentals)
       create_rental(books, people, rentals)
     when 6
       list_all_rentals_by_id(rentals)
-    when 7
-      exit_app
-      break
     else
+      exit_app
       break
     end
   end
 end
+
 main
