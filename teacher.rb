@@ -1,7 +1,6 @@
 require './person'
 
 class Teacher < Person
-  attr_reader :rentals
 
   def initialize(age:, specialization:, name: 'Unknown')
     super(age: age, name: name)

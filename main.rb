@@ -36,7 +36,7 @@ def options(books, people, rentals) # rubocop:disable Metrics/MethodLength: Meth
     when 5
       create_rental(books, people, rentals)
     when 6
-      list_all_rentals_by_id(rentals)
+      list_all_rentals_by_id
     else
       exit_app
       break

@@ -21,9 +21,9 @@ end
 
 def create_person(person)
   puts 'Do you want to create a student (1) or a teacher (2)? [Input the number]:'
-  roll = gets.chomp.to_i
+  roll = gets.chomp
   print 'Age: '
-  age = gets.chomp.to_i
+  age = gets.chomp
   print 'Name: '
   name = gets.chomp.to_s
 
