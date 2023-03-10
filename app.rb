@@ -25,7 +25,7 @@ def create_person(person)
   print 'Age: '
   age = gets.chomp
   print 'Name: '
-  name = gets.chomp.to_s
+  name = gets.chomp
 
   case roll
   when 1
