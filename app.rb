@@ -21,11 +21,11 @@ end
 
 def create_person(person)
   puts 'Do you want to create a student (1) or a teacher (2)? [Input the number]:'
-  roll = gets.chomp
+  roll = gets.chomp.to_i
   print 'Age: '
-  age = gets.chomp
+  age = gets.chomp.to_i
   print 'Name: '
-  name = gets.chomp
+  name = gets.chomp.to_s
 
   case roll
   when 1
