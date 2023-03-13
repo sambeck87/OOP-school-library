@@ -1,24 +1,24 @@
 require_relative './display_list_option'
 
-def options(books, people, rentals) # rubocop:disable Metrics/MethodLength: Method has too many lines
+def options # rubocop:disable Metrics/MethodLength: Method has too many lines
   loop do
     display_list
     option = gets.chomp.to_i
     case option
     when 1
-      list_all_books(books)
+      App.list_all_books
     when 2
-      list_all_people(people)
+      App.list_all_people
     when 3
-      create_person(people)
+      App.create_person
     when 4
-      create_book(books)
+      App.create_book
     when 5
-      create_rental(books, people, rentals)
+      App.create_rental
     when 6
-      list_all_rentals_by_id(rentals)
+      App.list_all_rentals_by_id
     else
-      exit_app
+      App.exit_app
       break
     end
   end
