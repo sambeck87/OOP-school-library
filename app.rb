@@ -2,6 +2,7 @@ require_relative './book'
 require_relative './student'
 require_relative './teacher'
 require_relative './rental'
+require_relative './save_data'
 
 class App
   @books = []
@@ -24,7 +25,7 @@ class App
     end
   end
 
-  def self.create_person
+  def self.create_person # rubocop:disable Metrics/MethodLength: Method has too many lines
     puts 'Do you want to create a student (1) or a teacher (2)? [Input the number]:'
     roll = gets.chomp.to_i
     print 'Age: '
@@ -39,10 +40,12 @@ class App
       parent_permission = true if permission == 'y'
       parent_permission = false if permission == 'n'
       @people.push(Student.new(classroom: nil, age: age, name: name, parent_permission: parent_permission))
+      save_people(@people)
     when 2
       print 'Specialization: '
       specialization = gets.chomp.to_s
       @people.push(Teacher.new(name: name, age: age, specialization: specialization))
+      save_people(@people)
     end
     puts 'Person created successfully'
   end
@@ -53,6 +56,7 @@ class App
     print 'Author: '
     author = gets.chomp.to_s
     @books.push(Book.new(title: title, author: author))
+    save_book(@books)
     puts 'Book created successfully'
   end
 
@@ -71,6 +75,7 @@ class App
     date = gets.chomp
 
     @rentals.push(Rental.new(date: date, person: @people[person_seleted], book: @books[book_seleted]))
+    save_rental(@rentals)
     puts 'Rental created successfully'
   end
 

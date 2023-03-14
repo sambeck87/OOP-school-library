@@ -1,5 +1,4 @@
 def display_list
-
   options = {
     list_all_books: 'List all books',
     list_all_people: 'List all people',
