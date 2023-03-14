@@ -35,11 +35,11 @@ class App
 
     case roll
     when 1
-      print 'Has parents permission? [Y/N]: '
+      print 'Has parent_permission permission? [Y/N]: '
       permission = gets.chomp.to_s.downcase
-      parents = true if permission == 'y'
-      parents = false if permission == 'n'
-      @people.push(Student.new(classroom: nil, age: age, name: name, parents: parents))
+      parent_permission = true if permission == 'y'
+      parent_permission = false if permission == 'n'
+      @people.push(Student.new(classroom: nil, age: age, name: name, parent_permission: parent_permission))
       puts @people
       save_people(@people)
     when 2
