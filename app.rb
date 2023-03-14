@@ -37,9 +37,10 @@ class App
     when 1
       print 'Has parents permission? [Y/N]: '
       permission = gets.chomp.to_s.downcase
-      parent_permission = true if permission == 'y'
-      parent_permission = false if permission == 'n'
-      @people.push(Student.new(classroom: nil, age: age, name: name, parent_permission: parent_permission))
+      parents = true if permission == 'y'
+      parents = false if permission == 'n'
+      @people.push(Student.new(classroom: nil, age: age, name: name, parents: parents))
+      puts @people
       save_people(@people)
     when 2
       print 'Specialization: '

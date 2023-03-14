@@ -1,17 +1,20 @@
 require 'json'
+require 'pry'
 
 def save_people(people)
-  people = people.map do |person|
+  people2 = people.map do |person|
     [
       person.class,
       person.name,
       person.id,
       person.age,
-      person.parent_permission
+      #person.class.parent_permission,
+      person.parents,
       #person.class == "Student" ? person.parent_permission : person.specialization
     ]
   end
-  people_json = JSON.generate(people)
+  binding.pry
+  #people_json = JSON.dump(people)
   File.open('people.json', 'w') do |file|
     file.write people_json
   end
