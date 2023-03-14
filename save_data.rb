@@ -14,39 +14,34 @@ def save_people(people)
   File.open('people.json', 'w') do |file|
     file.write people_json
   end
-  # File.open('people.json', 'w') do |file|
-  #  file.write JSON.generate(people)
-  # end
-  # json_string = File.read('people.json')
-  # data = JSON.parse(json_string)
-  # puts data
+  App.read_data
 end
 
 def save_book(book)
   books = book.map do |book|
     [
       book.title,
-      book.author,
+      book.author
     ]
   end
-  books_json = JSON.generate(people)
+  books_json = JSON.generate(books)
   File.open('books.json', 'w') do |file|
     file.write books_json
   end
 end
 
 def save_rental(rental)
-  rentals = people.map do |person|
+  rentals = rental.map do |rental|
     [
-      person.class,
-      person.name,
-      person.id,
-      person.age
+      rental.date,
+      rental.book.title,
+      rental.book.author,
+      rental.person.id
     ]
   end
-  people_json = JSON.generate(people)
-  File.open('people.json', 'w') do |file|
-    file.write people_json
+  rentals_json = JSON.generate(rentals)
+  File.open('rentals.json', 'w') do |file|
+    file.write rentals_json
   end
 end
 

@@ -9,6 +9,24 @@ class App
   @people = []
   @rentals = []
 
+  def self.read_data
+    people_data = File.read('./people.json')
+    books_data = File.read('./books.json')
+    rentals_data = File.read('./rentals.json')
+    if people_data.strip.empty?
+      people = []
+    else
+      people_data = JSON.parse(people_data)
+      people_data.each do |person|
+        if person[0] == 'Student'
+          @people.push(Student.new(classroom: nil, age: person[3], name: person[1], parent_permission: person[4], id: person[2]))
+        else
+          @people.push(Teacher.new(name: person[1], age: person[3], specialization: person[4], id: person[2]))
+      end
+      end
+     end
+  end
+
   def self.list_all_books
     if @books[0]
       @books.each { |book| puts "Title: \"#{book.title}\", Author: #{book.author}" }
