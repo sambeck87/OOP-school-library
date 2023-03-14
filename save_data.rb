@@ -1,23 +1,53 @@
 require 'json'
 
 def save_people(people)
-  File.open('people.json', 'w') do |file|
-    file.write JSON.generate(people)
+  people = people.map do |person|
+    [
+      person.class,
+      person.name,
+      person.id,
+      person.age,
+      person.parent_permission
+      #person.class == "Student" ? person.parent_permission : person.specialization
+    ]
   end
-  json_string = File.read('people.json')
-  data = JSON.parse(json_string)
-  puts data
+  people_json = JSON.generate(people)
+  File.open('people.json', 'w') do |file|
+    file.write people_json
+  end
+  # File.open('people.json', 'w') do |file|
+  #  file.write JSON.generate(people)
+  # end
+  # json_string = File.read('people.json')
+  # data = JSON.parse(json_string)
+  # puts data
 end
 
 def save_book(book)
+  books = book.map do |book|
+    [
+      book.title,
+      book.author,
+    ]
+  end
+  books_json = JSON.generate(people)
   File.open('books.json', 'w') do |file|
-    file.write book
+    file.write books_json
   end
 end
 
 def save_rental(rental)
-  File.open('rentals.json', 'w') do |file|
-    file.write JSON.generate(rental)
+  rentals = people.map do |person|
+    [
+      person.class,
+      person.name,
+      person.id,
+      person.age
+    ]
+  end
+  people_json = JSON.generate(people)
+  File.open('people.json', 'w') do |file|
+    file.write people_json
   end
 end
 
@@ -35,7 +65,6 @@ end
 
 # require 'json'
 
-
 # # Data to be written to the file
 # data = {
 #   "name" => "John",
@@ -48,4 +77,3 @@ end
 
 # # Write the JSON string to a file
 # File.write('file.json', json_string)
-
