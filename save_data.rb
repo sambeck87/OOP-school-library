@@ -11,10 +11,7 @@ def save_people(people)
     ]
   end
   people_json = JSON.dump(people)
-  File.open('people.json', 'w') do |file|
-    file.write people_json
-  end
-  App.read_people
+  File.write('people.json', people_json)
 end
 
 def save_book(book)
@@ -25,9 +22,7 @@ def save_book(book)
     ]
   end
   books_json = JSON.generate(books)
-  File.open('books.json', 'w') do |file|
-    file.write books_json
-  end
+  File.write('books.json', books_json)
 end
 
 def save_rental(rental)
@@ -40,7 +35,5 @@ def save_rental(rental)
     ]
   end
   rentals_json = JSON.generate(rentals)
-  File.open('rentals.json', 'w') do |file|
-    file.write rentals_json
-  end
+  File.write('rentals.json', rentals_json)
 end
