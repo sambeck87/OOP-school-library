@@ -15,10 +15,10 @@ def save_people(people)
 end
 
 def save_book(book)
-  books = book.map do |book|
+  books = book.map do |b|
     [
-      book.title,
-      book.author
+      b.title,
+      b.author
     ]
   end
   books_json = JSON.generate(books)
@@ -26,12 +26,12 @@ def save_book(book)
 end
 
 def save_rental(rental)
-  rentals = rental.map do |rental|
+  rentals = rental.map do |r|
     [
-      rental.date,
-      rental.book.title,
-      rental.book.author,
-      rental.person.id
+      r.date,
+      r.book.title,
+      r.book.author,
+      r.person.id
     ]
   end
   rentals_json = JSON.generate(rentals)

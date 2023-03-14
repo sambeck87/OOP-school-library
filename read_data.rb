@@ -1,22 +1,21 @@
 require 'json'
 class ReadData
   def self.read_people(people)
-    if File.exist?('./people.json')
-      people_data = File.read('./people.json')
-    else
-      File.write('people.json', '')
-    end
+    people_data = File.exist?('./people.json') ? File.read('./people.json') : File.write('people.json', '')
+
     if people_data.strip.empty?
       people = []
     elsif people.empty?
-      people_data = JSON.parse(people_data)
-      people_data.each do |person|
-        if person[0] == 'Student'
-          people.push(Student.new(classroom: nil, age: person[3], name: person[1], parent_permission: person[4],
-                                  id: person[2]))
-        else
-          people.push(Teacher.new(name: person[1], age: person[3], specialization: person[4], id: person[2]))
-        end
+      JSON.parse(people_data).each do |person|
+        people << if person[0] == 'Student'
+                    Student.new(classroom: nil,
+                                age: person[3],
+                                name: person[1],
+                                parent_permission: person[4],
+                                id: person[2])
+                  else
+                    Teacher.new(name: person[1], age: person[3], specialization: person[4], id: person[2])
+                  end
       end
     end
   end
@@ -38,19 +37,15 @@ class ReadData
   end
 
   def self.read_rentals(books, people, rentals)
-    if File.exist?('./rentals.json')
-      rentals_data = File.read('./rentals.json')
-    else
-      File.write('rentals.json', '')
-    end
+    rentals_data = File.exist?('./rentals.json') ? File.read('./rentals.json') : File.write('rentals.json', '')
+
     if rentals_data.strip.empty?
       rentals = []
-    elsif rentals.empty?
-      rentals_data = JSON.parse(rentals_data)
-      rentals_data.each do |rental|
-        person = people.select { |person| person.id == rental[3] }
-        book = books.select { |book| book.title == rental[1] }
-        rentals.push(Rental.new(date: rental[0], person: person.first, book: book.first))
+    elsif !rentals.empty?
+      JSON.parse(rentals_data).each do |rental|
+        person = people.select { |p| p.id == rental[3] }
+        book = books.select { |b| b.title == rental[1] }
+        rentals << Rental.new(date: rental[0], person: person.first, book: book.first)
       end
     end
   end
