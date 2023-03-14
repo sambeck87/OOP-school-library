@@ -15,7 +15,7 @@ class App
     rentals_data = File.read('./rentals.json')
     if people_data.strip.empty?
       people = []
-    else
+    elsif @people.length == 0
       people_data = JSON.parse(people_data)
       people_data.each do |person|
         if person[0] == 'Student'
@@ -58,7 +58,6 @@ class App
       parent_permission = true if permission == 'y'
       parent_permission = false if permission == 'n'
       @people.push(Student.new(classroom: nil, age: age, name: name, parent_permission: parent_permission))
-      puts @people
       save_people(@people)
     when 2
       print 'Specialization: '
