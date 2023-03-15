@@ -1,7 +1,8 @@
 require 'json'
 class ReadData
   def self.read_people(people)
-    people_data = File.exist?('./people.json') ? File.read('./people.json') : File.write('people.json', '')
+    File.write('people.json', '') unless File.exist?('./people.json')
+    people_data = File.read('./people.json')
 
     if people_data.strip.empty?
       people = []
@@ -21,11 +22,9 @@ class ReadData
   end
 
   def self.read_books(books)
-    if File.exist?('./books.json')
-      books_data = File.read('./books.json')
-    else
-      File.write('books.json', '')
-    end
+    File.write('books.json', '') unless File.exist?('./books.json')
+    books_data = File.read('./books.json')
+
     if books_data.strip.empty?
       books = []
     elsif books.empty?
@@ -37,14 +36,15 @@ class ReadData
   end
 
   def self.read_rentals(books, people, rentals)
-    rentals_data = File.exist?('./rentals.json') ? File.read('./rentals.json') : File.write('rentals.json', '')
+    File.write('rentals.json', '') unless File.exist?('./rentals.json')
+    rentals_data = File.read('./rentals.json')
 
     if rentals_data.strip.empty?
       rentals = []
-    elsif !rentals.empty?
+    elsif rentals.empty?
       JSON.parse(rentals_data).each do |rental|
-        person = people.select { |p| p.id == rental[3] }
-        book = books.select { |b| b.title == rental[1] }
+        person = people.select { |pe| pe.id == rental[3] }
+        book = books.select { |bo| bo.title == rental[1] }
         rentals << Rental.new(date: rental[0], person: person.first, book: book.first)
       end
     end
