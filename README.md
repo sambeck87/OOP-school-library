@@ -137,7 +137,9 @@ This project use Github Pages to deploy the page, just type the command: "npm de
 👤 **Diego Cuenca**
 
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://github.com/dgcuenca) [![linkedin](https://img.shields.io/badge/dgcuenca-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/dgcuenca)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 <!-- FUTURE FEATURES -->
 

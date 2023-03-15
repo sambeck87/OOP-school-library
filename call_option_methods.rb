@@ -1,4 +1,5 @@
 require_relative './display_list_option'
+require_relative './app'
 
 def options(books, people, rentals) # rubocop:disable Metrics/MethodLength: Method has too many lines
   loop do
