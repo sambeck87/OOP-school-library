@@ -15,7 +15,6 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -57,15 +56,6 @@
 ### Key Features <a name="key-features"></a>
 
 - This is a Ruby app
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- LIVE DEMO -->
-
-## 🚀 Live Demo <a name="live-demo"></a>
-
-
-- [Live Demo Link Pendding]()
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -144,7 +134,7 @@ This project use Github Pages to deploy the page, just type the command: "npm de
 - Twitter: [@sambeck4488](https://twitter.com/sambeck4488)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/sandro-israel-hern%C3%A1ndez-zamora-899386a4/)
 
- **Diego Cuenca**
+👤 **Diego Cuenca**
 
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://github.com/dgcuenca) [![linkedin](https://img.shields.io/badge/dgcuenca-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/dgcuenca)
 
